@@ -10,6 +10,7 @@ export default function Accordian() {
 
     function handleSingleSelection(getCurrentID) {
         console.log(getCurrentID);
+        setSelected(getCurrentID === selected ? null : getCurrentID);
     }
 
     return <div className="wrapper">
@@ -21,6 +22,9 @@ export default function Accordian() {
                             <h3>{dataItem.question}</h3>
                             <span>+</span>
                         </div>
+                        {
+                            selected === dataItem.id ? <div className="content">{dataItem.answer}</div> : null
+                        }
                     </div>
                 ))
             ) : (
